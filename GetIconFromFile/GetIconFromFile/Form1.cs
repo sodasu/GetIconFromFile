@@ -38,12 +38,12 @@ namespace WindowsFormsApplication1
             {
                 fName = openFileDialog1.FileName;
                 //Use this to get the small Icon
-                hImgSmall = Win32.SHGetFileInfo(fName, 0, ref shinfo, (uint)Marshal.SizeOf(shinfo), Win32.SHGFI_ICON | Win32.SHGFI_SMALLICON);
+                //hImgSmall = Win32.SHGetFileInfo(fName, 0, ref shinfo, (uint)Marshal.SizeOf(shinfo), Win32.SHGFI_ICON | Win32.SHGFI_SMALLICON);
 
                 //Use this to get the large Icon
-                //hImgLarge = SHGetFileInfo(fName, 0, 
-                //	ref shinfo, (uint)Marshal.SizeOf(shinfo), 
-                //	Win32.SHGFI_ICON | Win32.SHGFI_LARGEICON);
+                hImgLarge = Win32.SHGetFileInfo(fName, 0, 
+                	ref shinfo, (uint)Marshal.SizeOf(shinfo), 
+                	Win32.SHGFI_ICON | Win32.SHGFI_LARGEICON);
 
                 //The icon is returned in the hIcon member of the shinfo struct
                 System.Drawing.Icon myIcon = System.Drawing.Icon.FromHandle(shinfo.hIcon);
